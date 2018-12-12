@@ -1,0 +1,38 @@
+package sum3;
+
+import java.util.Arrays;
+
+
+public class Sum3 {
+public static int[] c={-6,-1,0,1,2,-1};
+    public static void main(String[] args) {
+        Correct(0);
+    }
+    
+    public static void Correct(int i){
+        int sum=0;
+        int []b=new int[3];
+        if(i==c.length-1){
+            for(int k=0;k<3;k++)
+            {
+                sum+=c[k];
+                b[k]=c[k];
+            }    
+            if(sum==0)
+                System.out.println(Arrays.toString(b));
+        }
+        else for(int j=i;j<c.length;j++)
+        {
+            scambia(i,j);
+            Correct(i+1);
+            scambia(i,j);
+            
+        }
+    }
+      public static void scambia(int i,int j)
+    {
+        int a=c[i];
+        c[i]=c[j];
+        c[j]=a;
+    }
+}
