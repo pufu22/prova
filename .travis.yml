@@ -1,30 +1,10 @@
-name: setup-tectonic action
+sudo: required
+language: generic
+services: docker
 
-on: push
-
-jobs:
-  build:
-    runs-on: windows-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - uses: actions/cache@v2
-        name: Tectonic Cache
-        with:
-          path: ~/.cache/Tectonic
-          key: ${{ runner.os }}-tectonic-${{ hashFiles('**/*.tex') }}
-          restore-keys: |
-            ${{ runner.os }}-tectonic-
-      - uses: wtfjoke/setup-tectonic@v1
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-      - name: Run Tectonic
-        run: |
-          cd src
-          tectonic main.tex
-      - name: Upload pdf
-        uses: actions/upload-artifact@v2
-        with:
-          name: main
-          path: src/main.pdf
+script:
+  # We use the docker image from https://hub.docker.com/r/dxjoke/tectonic-docker/
+  # Compiling only main.tex:
+  - docker run --mount src=$TRAVIS_BUILD_DIR/src,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic main.tex"
+  # Compiling multiple files as well as using biber:
+#  - docker run --mount src=$TRAVIS_BUILD_DIR/src,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic --keep-intermediates --reruns 0 biber-mwe.tex; biber biber-mwe; tectonic biber-mwe.tex; tectonic main.tex"
