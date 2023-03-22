@@ -1,12 +1,17 @@
-sudo: required
-language: generic
-services: docker
+name: dxjoke Tectonic Docker
 
-script:
-  # We use the docker image from https://hub.docker.com/r/dxjoke/tectonic-docker/
-  - docker pull dxjoke/tectonic-docker
-  # Compiling only main.tex:
-  - docker run --mount src=prova/src,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic main.tex"
-  # Compiling multiple files as well as using biber:
-#  - docker run --mount src=$TRAVIS_BUILD_DIR/src,target=/usr/src/tex,type=bind dxjoke/tectonic-docker /bin/sh -c "tectonic --keep-intermediates --reruns 0 biber-mwe.tex; biber biber-mwe; tectonic biber-mwe.tex; tectonic main.tex"
+on: push
 
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v1
+      - name: Compile
+        run: docker run --mount src=$GITHUB_WORKSPACE/src,target=/usr/src/tex,type=bind dxjoke/tectonic-docker:latest /bin/sh -c "tectonic main.tex"
+      - name: Upload pdf
+        uses: actions/upload-artifact@v2
+        with:
+          name: main.zip
+          path: src/main.pdf
