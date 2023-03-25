@@ -35,6 +35,7 @@ jobs:
         with:
           name: src_site
           path: |
+            prova/*.html
             src/*.pdf
             !src/*.tex
          
