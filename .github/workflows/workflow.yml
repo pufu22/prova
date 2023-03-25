@@ -21,7 +21,7 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
-          working_directory: prova
+          working_directory: src
           root_file: "**/*.tex"
           glob_root_file: true
           work_in_root_file_dir: true
@@ -31,7 +31,11 @@ jobs:
         with:
           name: docs
           path: "*.pdf"
-
+      - name: Sc
+        uses: actions/checkout@v3
+        with:
+          submodules: 'recursive'
+          fetch-depth: 0
       - name: Generate Directory Listings
         uses: jayanta525/github-pages-directory-listing@v3.0.0
         with:
