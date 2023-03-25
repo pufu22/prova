@@ -19,10 +19,7 @@ jobs:
           submodules: 'recursive'
           fetch-depth: 0
 
-      - name: Generate Directory Listings
-        uses: jayanta525/github-pages-directory-listing@v3.0.0
-        with:
-          FOLDER: src
+      
 
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
@@ -32,6 +29,10 @@ jobs:
           work_in_root_file_dir: true
           #post_compile: "cd src; latexmk -c"
 
+      - name: Generate Directory Listings
+        uses: jayanta525/github-pages-directory-listing@v3.0.0
+        with:
+          FOLDER: src
 
       
 
