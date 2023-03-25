@@ -31,11 +31,11 @@ jobs:
 
     
 
-      - name: Upload PDF artifact
+      - name: Upload artifact with dir
         uses: actions/upload-artifact@v3
         with:
           name: src_site
-          path: ./docs
+          path: ./prova
          
   deploy:
     name: Deploy to pages
