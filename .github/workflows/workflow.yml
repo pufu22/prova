@@ -29,7 +29,10 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: src_site
-          path: ./data
+          path: |
+            data
+            src/*.pdf
+            !src/*.tex
          
   deploy:
     name: Deploy to pages
