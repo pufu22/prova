@@ -31,10 +31,7 @@ jobs:
           name: src_site
           path: |
             src/*.pdf
-            src/tex/*.pdf
             src/*.html
-            src/tex/*.html
-            !src/tex/*.tex
             !src/*.tex
          
   deploy:
