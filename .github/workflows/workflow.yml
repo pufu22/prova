@@ -24,14 +24,16 @@ jobs:
         uses: jayanta525/github-pages-directory-listing@v3.0.0
         with:
           FOLDER: data
-          
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: 'data'      # upload generated folder
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v3
         with:
           name: src_site
           path: |
             src/*.pdf
-            data/*.html
             !src/*.tex
          
   deploy:
