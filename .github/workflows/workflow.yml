@@ -30,7 +30,7 @@ jobs:
         with:
           name: src_site
           path: |
-            data
+            data/
             src/*.pdf
             !src/*.tex
          
