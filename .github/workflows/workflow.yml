@@ -22,8 +22,8 @@ jobs:
       - name: Generate Directory Listings
         uses: jayanta525/github-pages-directory-listing@v3.0.0
         with:
-          FOLDER: prova
-              
+          FOLDER: src
+
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
