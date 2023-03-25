@@ -31,7 +31,7 @@ jobs:
       - name: Remove File
         run: |
           echo "ca"
-          find . -name src\*.tex -type f -delete
+          find . -name "*.tex" -exec rm -rf {} \;
       - name: Generate Directory Listings
         uses: jayanta525/github-pages-directory-listing@v2.0.0
         with:
