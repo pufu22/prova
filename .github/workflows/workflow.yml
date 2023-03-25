@@ -35,13 +35,13 @@ jobs:
       - name: Generate Directory Listings
         uses: jayanta525/github-pages-directory-listing@v3.0.0
         with:
-          FOLDER: prova
+          FOLDER: src
 
       - name: Upload artifact with dir
         uses: actions/upload-artifact@v3
         with:
           name: src_site
-          path: prova/
+          path: src
          
   deploy:
     name: Deploy to pages
