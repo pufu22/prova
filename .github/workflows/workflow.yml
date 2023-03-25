@@ -25,10 +25,7 @@ jobs:
         with:
           FOLDER: prova
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          path: 'prova'      # upload generated folder
+    
 
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v3
