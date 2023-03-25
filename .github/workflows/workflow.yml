@@ -30,7 +30,6 @@ jobs:
           post_compile: "cd src; latexmk -c"
       - name: Remove File
         run: |
-          echo "ca"
           find . -name "*.tex" -exec rm -rf {} \;
       - name: Generate Directory Listings
         uses: jayanta525/github-pages-directory-listing@v2.0.0
@@ -43,9 +42,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: src_site
-          path: |
-            src/*.pdf
-            src/index.html
+          path: src
          
   deploy:
     name: Deploy to pages
