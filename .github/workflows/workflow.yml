@@ -30,9 +30,9 @@ jobs:
         with:
           name: src_site
           path: |
-            data/*.pdf
-            data/*.html
-            !data/*.tex
+            src/*.pdf
+            src/*.html
+            !src/*.tex
          
   deploy:
     name: Deploy to pages
