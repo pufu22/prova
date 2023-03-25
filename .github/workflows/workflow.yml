@@ -45,7 +45,7 @@ jobs:
           name: src_site
           path: |
             src/*.pdf
-            prova/index.html
+            src/index.html
          
   deploy:
     name: Deploy to pages
