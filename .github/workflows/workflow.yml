@@ -31,10 +31,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: src_site
-          path: |
-            prova/*.html
-            src/*.pdf
-            !src/*.tex
+          path: prova
          
   deploy:
     name: Deploy to pages
