@@ -1,0 +1,1 @@
+find . -name \*.tex -type f -delete
