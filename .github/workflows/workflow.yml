@@ -40,12 +40,13 @@ jobs:
         uses: actions/upload-artifact@v3
         with: 
           name: docs
-          path: ./
+          path: "**/*.pdf"
       - name: ⬇ Download artifact documentazione
         uses: actions/download-artifact@v3.0.1
         with:
           name: docs
           path: ./docs
+
       - name: Generate Directory Listings
         uses: jayanta525/github-pages-directory-listing@v2.0.0
         with:
