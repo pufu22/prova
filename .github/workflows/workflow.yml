@@ -37,9 +37,7 @@ jobs:
           find . -name "*.out" -exec rm -rf {} \;
           find . -name "*.fdb_latexmk" -exec rm -rf {} \;
       - name: check
-        run: |
-          cd ..;
-          ls
+        run: mkdir prova
       - name: Generate Directory Listings
         uses: jayanta525/github-pages-directory-listing@v2.0.0
         with:
