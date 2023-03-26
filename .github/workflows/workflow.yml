@@ -38,13 +38,12 @@ jobs:
           find . -name "*.fdb_latexmk" -exec rm -rf {} \;
       - name: check
         run: |
-          mkdir prova;
-          cd ..;
-          cp -R . prova;
+          mkdir docs;
+          cp -R . docs;
       - name: Generate Directory Listings
         uses: jayanta525/github-pages-directory-listing@v2.0.0
         with:
-          FOLDER: prova
+          FOLDER: docs
 
       
 
@@ -52,7 +51,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: src_site
-          path: prova
+          path: prova/docs
          
   deploy:
     name: Deploy to pages
