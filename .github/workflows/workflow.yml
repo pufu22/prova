@@ -39,6 +39,7 @@ jobs:
       - name: check
         run: |
           mkdir docs
+          cd ..
           ls
           cp -R prova docs
       - name: Generate Directory Listings
