@@ -37,7 +37,7 @@ jobs:
           find . -name "*.out" -exec rm -rf {} \;
           find . -name "*.fdb_latexmk" -exec rm -rf {} \;
       - name: Artifact of pdf files
-        uses: action/upload-artifact@v3
+        uses: actions/upload-artifact@v3
         with: 
           name: docs
           path: ./
