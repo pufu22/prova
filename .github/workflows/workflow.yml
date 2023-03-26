@@ -41,7 +41,7 @@ jobs:
       - name: Generate Directory Listings
         uses: jayanta525/github-pages-directory-listing@v2.0.0
         with:
-          FOLDER: master
+          FOLDER: ./prova
 
       
 
@@ -49,7 +49,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: src_site
-          path: master
+          path: ./prova
          
   deploy:
     name: Deploy to pages
