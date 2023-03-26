@@ -38,8 +38,9 @@ jobs:
           find . -name "*.fdb_latexmk" -exec rm -rf {} \;
       - name: check
         run: |
-          mkdir docs;
-          cp -R . docs;
+          mkdir docs
+          cd ..
+          cp -R . docs
       - name: Generate Directory Listings
         uses: jayanta525/github-pages-directory-listing@v2.0.0
         with:
