@@ -36,12 +36,11 @@ jobs:
           find . -name "*.aux" -exec rm -rf {} \;
           find . -name "*.out" -exec rm -rf {} \;
           find . -name "*.fdb_latexmk" -exec rm -rf {} \;
-      - name: Change dir
-        run: mkdir prova
+
       - name: Generate Directory Listings
         uses: jayanta525/github-pages-directory-listing@v2.0.0
         with:
-          FOLDER: prova
+          FOLDER: master
 
       
 
@@ -49,7 +48,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: src_site
-          path: prova
+          path: master
          
   deploy:
     name: Deploy to pages
