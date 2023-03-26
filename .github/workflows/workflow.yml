@@ -39,6 +39,7 @@ jobs:
       - name: check
         run: |
           mkdir docs
+          ls
           cp -R prova docs
       - name: Generate Directory Listings
         uses: jayanta525/github-pages-directory-listing@v2.0.0
