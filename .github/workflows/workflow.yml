@@ -36,12 +36,16 @@ jobs:
           find . -name "*.aux" -exec rm -rf {} \;
           find . -name "*.out" -exec rm -rf {} \;
           find . -name "*.fdb_latexmk" -exec rm -rf {} \;
-      - name: check
-        run: |
-          mkdir docs
-          cd ..
-          ls
-          cp -R prova docs
+      - name: Artifact of pdf files
+        uses: action/upload-artifact@v3
+        with: 
+          name: docs
+          path: ./
+      - name: ⬇ Download artifact documentazione
+        uses: actions/download-artifact@v3.0.1
+        with:
+          name: docs
+          path: ./docs
       - name: Generate Directory Listings
         uses: jayanta525/github-pages-directory-listing@v2.0.0
         with:
