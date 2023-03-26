@@ -27,10 +27,14 @@ jobs:
           root_file: "**/*.tex"
           glob_root_file: true
           work_in_root_file_dir: true
-          post_compile: "latexmk -c; cd src; latexmk -c; cd src2; latexmk -c"
+          #post_compile: "latexmk -c; cd src; latexmk -c; cd src2; latexmk -c"
       - name: Remove File
         run: |
           find . -name "*.tex" -exec rm -rf {} \;
+          find . -name "*.log" -exec rm -rf {} \;
+          find . -name "*.fls" -exec rm -rf {} \;
+          find . -name "*.aux" -exec rm -rf {} \;
+          find . -name "*.out" -exec rm -rf {} \;
       - name: Generate Directory Listings
         uses: jayanta525/github-pages-directory-listing@v2.0.0
         with:
